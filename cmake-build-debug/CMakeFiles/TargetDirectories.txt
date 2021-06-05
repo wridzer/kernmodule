@@ -1,0 +1,3 @@
+C:/Users/wridz/CLionProjects/kernmodule/cmake-build-debug/CMakeFiles/kernmodule.dir
+C:/Users/wridz/CLionProjects/kernmodule/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/wridz/CLionProjects/kernmodule/cmake-build-debug/CMakeFiles/rebuild_cache.dir
