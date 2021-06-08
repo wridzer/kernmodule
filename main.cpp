@@ -12,6 +12,7 @@ int main()
 {
     //Time.deltaTime
     DeltaTime* deltaTime = new DeltaTime();
+    bool firstLoop = true;
 
     //Create window
     int windowW = 800;
@@ -42,9 +43,13 @@ int main()
         enimList.push_back(enemy);
     }
 
+    //set deltatime
+    deltaTime->UpdateDT();
+
     //Game loop
     while (window.isOpen())
     {
+        deltaTime->UpdateDT();
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -97,7 +102,6 @@ int main()
         //Display window and clear it
         window.display();
         window.clear();
-        deltaTime->UpdateDT();
     }
 
     delete player;
