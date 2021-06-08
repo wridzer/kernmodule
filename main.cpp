@@ -49,7 +49,9 @@ int main()
     //Game loop
     while (window.isOpen())
     {
+        //Update deltatime
         deltaTime->UpdateDT();
+        //Check event
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -63,6 +65,7 @@ int main()
         player->Move(deltaTime->dt);
         //Enemy loop
         for (int i = 0; i < enimList.size(); ++i) {
+            //Draw enemy
             window.draw(enimList[i]->Draw(deltaTime->dt));
             //Delete enemy under screen
             if(enimList[i]->Draw(deltaTime->dt).getPosition().y > windowH + 5)
@@ -78,7 +81,6 @@ int main()
                 enimList.erase(enimList.begin() + i);
                 sm->Play("oof.wav");
                 score->AddScore(1);
-                //enimNumber += 1;
             }
         }
         //Add new enemies
@@ -90,7 +92,7 @@ int main()
         window.draw(player->Draw());
         //Print score
         window.draw(scoreText->returnText("Score: " + std::to_string(score->GetScore())));
-        //Die
+        //Win
         if(score->GetScore() > winScore)
         {
             window.clear();
@@ -103,7 +105,7 @@ int main()
         window.display();
         window.clear();
     }
-
+    //Delete everything
     delete player;
     delete deltaTime;
     delete score;
